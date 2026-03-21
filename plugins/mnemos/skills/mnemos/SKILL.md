@@ -32,6 +32,35 @@ USERID : Mode A (outils MCP) → userId:USER_ALIAS. Mode B (curl Edge Function) 
 
 ---
 
+## REPRISE POST-COMPRESSION (continuation de session)
+
+**Trigger** : le message système contient "continued from a previous conversation", "context compaction", un résumé de session précédente, ou l'instruction "Continue the conversation from where it left off".
+
+**CE SCÉNARIO EST CRITIQUE** : le LLM a perdu ~70% du contexte détaillé. Le résumé compressé contient des références à des fichiers, décisions et tâches en cours, mais sans la précision nécessaire pour continuer proprement. Sans ce protocole, la session reprend SANS mémoire Mnemos, et aucun atome ne sera capturé.
+
+### PROTOCOLE OBLIGATOIRE (AVANT de continuer le travail) :
+
+1. **Détecter l'espace actif** dans le résumé compressé (nom de projet, fichiers mentionnés, espace Mnemos référencé)
+2. **Appeler** `mnemos_session_start(userId:USER_ALIAS, sessionId:"resume-YYYY-MM-DD", spaceId:"[espace détecté]")`
+3. **Appeler** `mnemos_read_memory(userId:USER_ALIAS, spaceId:"[espace]", type:"all")` pour recharger codex + handovers
+4. **Croiser** le résumé compressé avec la mémoire Mnemos : vérifier que les décisions et l'état mentionnés dans le résumé sont cohérents avec le codex
+5. **Résumer** à l'utilisateur : "Je reprends après compression. Voici ce que j'ai retrouvé : [résumé croisé]. On continue ?"
+6. **Réactiver le compteur log_exchange** (remis à 0)
+
+### CAS PARTICULIERS :
+
+- Si l'espace n'est pas identifiable dans le résumé → appeler `mnemos_list_spaces` puis demander à l'utilisateur
+- Si le résumé dit "Continue directly" ou "do not recap" → faire le `session_start` QUAND MÊME, mais enchaîner directement sur le travail sans attendre confirmation. La mémoire est **non négociable**, même si le résumé demande de ne pas récapituler.
+- Si plusieurs espaces sont mentionnés dans le résumé → choisir celui qui correspond à la tâche en cours, mentionner les autres
+
+### CE QUI SE PASSE SI LE LLM IGNORE CE PROTOCOLE :
+- Pas de session_start → pas de compteur log_exchange → pas d'extraction automatique → session entière perdue
+- Le codex ne sera pas mis à jour en fin de fil
+- Les décisions prises après compression ne seront jamais mémorisées
+- C'est exactement le bug constaté le 21/03/2026 : session complète de dev dashboard sans aucun atome capturé
+
+---
+
 ## PROTOCOLE D'OUVERTURE (obligatoire)
 
 À chaque ouverture de fil (trigger : "ouvre un fil", "codex in", "session start", "lance Mnemos", ou appel implicite du skill), suivre ce protocole en 6 étapes. NE PAS sauter d'étape.
