@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "mnemos": {
+      "command": "node",
+      "args": [
+        "~/mnemos-mcp/index.cjs"
+      ],
+      "env": {
+        "SUPABASE_URL": "https://YOUR_PROJECT.supabase.co",
+        "SUPABASE_SERVICE_ROLE_KEY": "YOUR_SERVICE_ROLE_KEY",
+        "ANTHROPIC_API_KEY": "YOUR_ANTHROPIC_API_KEY",
+        "VOYAGE_API_KEY": "YOUR_VOYAGE_API_KEY",
+        "MNEMOS_USER_ID": "YOUR_USER_ID"
+      }
+    }
+  }
+}
