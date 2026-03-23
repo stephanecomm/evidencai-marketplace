@@ -6,7 +6,7 @@ Official plugin marketplace for Claude by [EvidencAI](https://mnemos-dashboard.v
 
 | Plugin | Description | Status |
 |--------|-------------|--------|
-| **Mnemos** | Persistent intelligent memory — 33 MCP tools, knowledge graph, smart decay | Available |
+| **Mnemos** | Persistent intelligent memory — 37 MCP tools, knowledge graph, dedup, auth | Available |
 | **SignalPro** | Strategic intelligence & signal detection | Coming soon |
 | **CodirIA** | AI governance for executive committees | Coming soon |
 

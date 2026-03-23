@@ -11,8 +11,8 @@
     {
       "name": "mnemos",
       "source": "./plugins/mnemos",
-      "description": "Mémoire persistante intelligente. 33 outils MCP pour sessions, atomes, espaces, profils, documents.",
-      "version": "0.2.0"
+      "description": "Mémoire persistante intelligente. 37 outils MCP : sessions, atomes, espaces, profils, documents, auth, déduplication automatique.",
+      "version": "0.4.0"
     }
   ]
 }

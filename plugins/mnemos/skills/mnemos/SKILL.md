@@ -200,6 +200,7 @@ L'utilisateur dit "extrais les atomes". Extraction immédiate sans attendre le b
 - `triage_atoms` : quand get_stats montre > 30% d'atomes basse confiance, ou sur demande.
 - `garbage_collect` : tâche hebdomadaire (pg_cron dimanche 2h UTC). Archive atomes sous le seuil de decay, détecte doublons.
 - `health_check` : cron quotidien (pg_cron 5h UTC via Edge Function health-cron). Génère les embeddings manquants, reconnecte les orphelins, purge les connexions obsolètes. Aussi appelable manuellement : `mnemos_health_check(userId, repair:true)`.
+- **Déduplication automatique (v0.4.0)** : tous les chemins d'insertion d'atomes (extract_atoms, create_atom_manual, ingest_document, extractAtomsFromBuffer) vérifient les doublons AVANT insertion via vector_score (cosine pure). Deux paliers : >= 0.90 skip (garder le plus long), 0.80-0.90 fusion Haiku. Transparent pour l'utilisateur.
 
 ---
 
@@ -319,7 +320,7 @@ Ne PAS mapper mécaniquement. Analyser le contenu. En cas de doute, préférer l
 
 ## Annexe D : Référence rapide
 
-**33 outils MCP** : Espaces (list, suggest, create, update) · Atomes (search, create_manual, update, toggle_pin, triage, extract, garbage_collect) · Contexte (get_context, get_stats, get_calibration) · Boot (quick_boot) · Sessions (session_start, session_end) · Mémoire (write_memory, read_memory) · Profil (get_profile, update_profile) · Contacts (upsert, search) · Ingestion (ingest_document, ingest_events, process_events) · Insights (cross_insights, analyze_space) · Documents (list_documents) · Connexions (create_connection) · Feedback (submit_feedback, log_exchange) · Sync (sync_status) · Maintenance (health_check)
+**37 outils MCP** : Auth (login, signup, logout, whoami) · Espaces (list, suggest, create, update) · Atomes (search, create_manual, update, toggle_pin, triage, extract, garbage_collect) · Contexte (get_context, get_stats, get_calibration) · Boot (quick_boot) · Sessions (session_start, session_end) · Mémoire (write_memory, read_memory) · Profil (get_profile, update_profile) · Contacts (upsert, search) · Ingestion (ingest_document, ingest_events, process_events) · Insights (cross_insights, analyze_space) · Documents (list_documents) · Connexions (create_connection) · Feedback (submit_feedback, log_exchange) · Sync (sync_status) · Maintenance (health_check)
 Note spaceId : Mode A accepte le **nom**. Mode B exige le **UUID**.
 
 **get_context — 6 modes** : auto (défaut), onboard (25 atomes, ouverture), recall (8 atomes, ponctuel), briefing (15 atomes, projet), morning (insights complets), explore (20 atomes, brainstorm).
