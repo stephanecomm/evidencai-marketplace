@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "Plugins EvidencAI pour Claude — mémoire persistante, veille, gouvernance IA",
-    "homepage": "https://mnemos-dashboard.vercel.app"
+    "homepage": "https://mnemos.evidencai.com"
   },
   "plugins": [
     {
