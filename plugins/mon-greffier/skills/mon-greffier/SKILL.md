@@ -506,4 +506,4 @@ Le juge peut relancer n'importe quelle phase validée (sauf la rédaction défin
 
 - `references/taxonomie-hallucinations.md` : Classification complète des types d'erreurs et gravités
 - `references/strategies-recherche-piste.md` : Stratégies de recherche avancées par type de référence (Legifrance + Judilibre)
-- `SKILL-base-assistant-tc.md` : Raisonnement juridique détaillé (FNR, prescription, ordre d'examen, etc.)
+<!-- SKILL-base-assistant-tc.md (modes RÉFÉRÉ, RELECTURE, NON-COMPARANT) : à intégrer dans une future version -->
