@@ -167,25 +167,36 @@ Quand un avocat cite un article, ne pas se contenter de vérifier que l'article 
 - La jurisprudence citée confirme bien cette interprétation (et pas l'inverse)
 Si l'avocat cite l'art. 1231-6 C. civ. pour réclamer des intérêts moratoires, vérifier qu'il y a bien eu mise en demeure préalable (condition posée par l'article).
 
-**Règle 3 : Analyser les prétentions NON contestées et les arguments sans réponse.**
-Le silence d'une partie sur un argument adverse est un SIGNAL D'ALERTE pour le juge. Ce signal doit être analysé, pas ignoré. Le skill DOIT :
+**Règle 3 : Moins l'adversaire défend, plus le skill vérifie.**
+Quand un avocat soulève un argument que l'adversaire ne conteste pas, le réflexe du skill n'est PAS d'alerter sur le silence. C'est de VÉRIFIER LE FONDEMENT JURIDIQUE de l'argument lui-même via PISTE. Le skill devient le contradicteur que l'avocat adverse n'a pas été.
 
-**3a. Demandes non contestées (Partie A demande X, Partie B ne conteste pas) :**
-1. Identifier chaque demande non contestée
-2. Rechercher le fondement légal et jurisprudentiel via PISTE
-3. Confirmer (ou infirmer) que le droit soutient la prétention
-4. Signaler au juge : "Demande non contestée, fondement juridique vérifié : [article/jurisprudence]"
-   ou : "Demande non contestée MAIS fondement fragile : [raison]"
-Le juge doit pouvoir motiver même les demandes acquises. L'absence de contestation ne dispense pas de motivation.
+**Pourquoi ?** Un avocat qui ne conteste pas un point, c'est le cas normal : le droit est souvent clair et répondre affaiblirait sa position. Mais un argument non contesté n'est pas pour autant un argument fondé. Sans contradicteur, personne ne vérifie. C'est le travail du skill.
 
-**3b. Arguments adverses sans réponse (Partie A soulève un moyen, Partie B ne répond pas) :**
-1. Identifier chaque argument soulevé par une partie auquel l'adversaire ne répond pas
-2. AVANT de conclure que le silence vaut aveu ou dissimulation : rechercher via PISTE si le droit tranche clairement la question (jurisprudence constante, texte explicite)
-3. Trois hypothèses à distinguer et signaler au juge :
-   - L'argument est juridiquement inopérant (jurisprudence constante contraire) → le silence de l'adversaire est logique, ne pas surévaluer l'argument. Signaler : "Argument non contesté MAIS juridiquement inopérant : [jurisprudence]"
-   - L'argument est fondé et l'adversaire ne le conteste pas → signal fort en faveur de celui qui le soulève. Signaler : "Argument non contesté et juridiquement fondé : [article/jurisprudence]"
-   - L'argument est discutable → signaler au juge que l'absence de réponse est notable et laisser l'appréciation
-4. Ne JAMAIS présumer qu'un silence cache quelque chose sans avoir d'abord vérifié le droit. L'excès de suspicion est aussi dangereux que le manque de vigilance. Exemple : une banque qui ne mentionne pas les garanties SOCAMA/BPI dans son action contre les cautions personnelles ne "dissimule" rien si la jurisprudence constante dit que ces garanties institutionnelles ne réduisent pas l'obligation des cautions personnelles (Cass. com. 18 mars 2014, n°13-12.444).
+**Workflow obligatoire pour tout argument non défendu par l'adversaire :**
+1. Identifier l'argument ou la demande non contesté(e)
+2. **Vérifier systématiquement via PISTE** le fondement invoqué :
+   - L'article cité est-il applicable ? En vigueur ? Bien interprété ?
+   - La jurisprudence citée confirme-t-elle vraiment cette interprétation ?
+   - Les conditions d'application sont-elles réunies (mise en demeure, délai, forme...) ?
+   - Existe-t-il une jurisprudence contraire que personne n'a soulevée ?
+3. **Conclure** sur la solidité du fondement — c'est ÇA que le juge a besoin de savoir :
+   - **Fondement solide** (texte clair + JP constante) : le confirmer au juge avec la référence vérifiée. Fournir la formulation de motivation standard. Pas d'alerte.
+   - **Fondement fragile** (article mal interprété, conditions non réunies, JP contraire) : ALERTER le juge sur la faiblesse du fondement, pas sur l'absence de contestation. C'est une vraie alerte utile.
+   - **Fondement incertain** (zone grise, JP divisée) : signaler l'incertitude au juge pour qu'il apprécie.
+
+**Ce qui change par rapport à un argument contesté :** quand les deux avocats débattent, le skill confronte leurs positions. Quand un seul avocat parle, le skill fait le travail du contradicteur absent : il challenge le fondement avec le même niveau d'exigence que l'aurait fait un bon avocat adverse.
+
+**3a. Demandes non contestées :**
+Vérifier le fondement via PISTE. Si solide : confirmer + formulation de motivation. Si fragile : alerter sur le fondement, pas sur le silence. L'absence de contestation ne dispense pas le juge de motiver, et le skill lui fournit les éléments pour le faire.
+
+**3b. Arguments adverses sans réponse :**
+Même réflexe : vérifier le fondement. Ne PAS surévaluer un argument au motif qu'il n'est pas contesté. Un argument non contesté avec un fondement bancal reste un argument bancal.
+Exemple : une banque qui ne mentionne pas les garanties SOCAMA/BPI dans son action contre les cautions personnelles — pas besoin de s'en inquiéter, la jurisprudence constante dit que ces garanties institutionnelles ne réduisent pas l'obligation des cautions personnelles (Cass. com. 18 mars 2014, n°13-12.444).
+
+**INTERDICTIONS :**
+- Ne JAMAIS créer d'alerte dont le message est "l'adversaire ne conteste pas" ou "argument non défendu". Ce n'est pas une information utile pour le juge et ça induit en erreur les débutants.
+- Ne JAMAIS présumer qu'un silence cache quelque chose. Vérifier le droit, constater, conclure.
+- Les alertes doivent porter sur le FOND (fondement fragile, condition manquante, JP contraire), jamais sur la FORME (absence de réponse adverse).
 
 **Règle 4 : Détecter les arguments "écran de fumée".**
 Certains avocats multiplient les moyens faibles pour noyer le juge. Signaler dans `alertes` :
@@ -356,17 +367,81 @@ Les choix du juge sur chaque point de décision déterminent la rédaction.
 }
 ```
 
+**Format obligatoire des motifs (par chef de demande) :**
+
+Chaque élément du tableau `motivation` DOIT suivre cette structure exacte, reprise du skill assistant-tc :
+
+```
+Sur [intitulé du chef] :
+
+Cadre juridique :
+[Texte de loi + principe — 2 phrases MAXIMUM. Pas de citation in extenso, pas de paragraphes.]
+
+En l'espèce :
+[Application aux faits + renvois pièces systématiques : "(pièce n°X du demandeur)"]
+
+Le tribunal retient :
+[Conclusion motivée — ce que le tribunal décide sur ce point]
+```
+
+**Correspondance avec le JSON :**
+- `point` : l'intitulé du chef, SANS le préfixe "Sur". Le dashboard ajoute "Sur" automatiquement. Écrire "la disproportion des cautionnements" et NON "Sur la disproportion des cautionnements".
+- `analyse_droit` : le "Cadre juridique" — COURT (2 phrases max : article applicable + principe jurisprudentiel). Ce n'est PAS un cours de droit.
+- `analyse_fait` : le "En l'espèce" — application aux faits avec renvois pièces. Chaque fait allégué renvoie à une pièce.
+- `fondement` : les références vérifiées (articles + JP) — une ligne, pas un paragraphe.
+- `decision` : le "Le tribunal retient" — la conclusion motivée.
+
 **Règles de rédaction :**
-- Chaque montant accordé DOIT être motivé individuellement
+- Chaque montant accordé DOIT être motivé individuellement (nature du préjudice + pièce justificative + méthode de calcul)
 - Chaque demande rejetée DOIT être motivée
-- Utiliser la formulation impersonnelle du tribunal ("Le Tribunal", pas "nous")- Visa des textes applicables en tête de chaque point
+- Utiliser la formulation impersonnelle du tribunal ("Le Tribunal", pas "nous")
+- Renvois pièces OBLIGATOIRES dans chaque "En l'espèce" : "(pièce n°X du demandeur)", "(pièce n°Y du défendeur)"
+**Format obligatoire du dispositif (PAR CES MOTIFS) :**
+
+Le champ `dispositif` du JSON DOIT respecter la formule complète ci-dessous. Pas de version abrégée.
+
+```
+PAR CES MOTIFS,
+
+Le Tribunal de Commerce de Romans-sur-Isère, après en avoir délibéré conformément à la loi, statuant par jugement [contradictoire / réputé contradictoire / par défaut] et en [premier / dernier] ressort, prononcé publiquement par mise à disposition au greffe, les parties ayant été préalablement avisées dans les conditions prévues au deuxième alinéa de l'article 450 du Code de procédure civile ;
+
+Vu les articles [liste des articles fondant la décision] ;
+
+DÉBOUTE [partie] de [demande] ;
+
+CONDAMNE [partie] à payer à [partie] la somme de [MONTANT EN LETTRES] ([montant en chiffres] €) au titre de [fondement] ;
+
+CONDAMNE [partie] aux entiers dépens de l'instance.
+
+Ainsi jugé et prononcé par mise à disposition du jugement au greffe du Tribunal de commerce de Romans-sur-Isère, le [DATE].
+
+Le Greffier,                                          Le Président,
+```
+
+**Règles PCM (obligatoires) :**
+- Point-virgule après la formule introductive
+- *Vu les articles...* en italique + point-virgule
+- Verbes en MAJUSCULES suivis d'un ESPACE : "DÉBOUTE la société..." et NON "DÉBOUTEla société..."
+- Point-virgule entre chaque chef de dispositif, point final au dernier
+- Montants en LETTRES CAPITALES suivi du chiffre entre parenthèses
+- Exécution provisoire : SILENCE (de droit depuis 2020) sauf demande d'écartement
 - Le dispositif reprend EXACTEMENT les décisions prises, sans ajout ni omission
+
+**Templates motivation quantum (obligatoire pour tout montant chiffré) :**
+- Préjudice chiffrable : "Il résulte de la pièce n°[X] que le préjudice s'élève à [montant]."
+- Préjudice évalué : "Le préjudice, certain dans son principe, ne peut être chiffré avec précision. Le tribunal l'évalue souverainement à [montant] €."
+- Article 700 : "Il serait inéquitable de laisser à la charge de [partie] les frais exposés. Le tribunal lui alloue [montant] € au titre de l'article 700 du CPC."
+
+**Exécution provisoire : NE RIEN ÉCRIRE.** Depuis le décret n° 2019-1333 du 11 décembre 2019 (applicable aux instances introduites à compter du 1er janvier 2020), l'article 514 du CPC dispose que les décisions de première instance sont de droit exécutoires à titre provisoire. Il n'y a donc RIEN à motiver, RIEN à mentionner dans la motivation, et RIEN à ajouter au dispositif — sauf si une partie a expressément demandé son exclusion ou son aménagement (art. 514-1 CPC).
 
 **Après écriture :** le juge relit dans le dashboard, peut annoter en marge, valider.
 
 ### Étape 4 : ROBUSTESSE
 
 **Prérequis :** lire les réponses du juge via `mongreffier_read_responses(phase_type: "redaction")`
+
+**Vérification automatique en robustesse :**
+- Si la rédaction mentionne ou motive l'exécution provisoire → signaler comme `angles_morts` (categorie: "argument_ignore", severite: "important", probleme: "La rédaction motive l'exécution provisoire alors qu'elle est de droit depuis le 1er janvier 2020 (art. 514 CPC). Supprimer toute mention.", solution: "Retirer le paragraphe sur l'exécution provisoire de la motivation et du dispositif.")
 
 **Sortie :** JSON structuré via `mongreffier_write_phase(phase_type: "robustesse")`
 
@@ -394,6 +469,7 @@ Les choix du juge sur chaque point de décision déterminent la rédaction.
     "jurisprudences_non_verifiees": [],
     "alertes_verification": []
   },
+
   "synthese": {
     "score_robustesse": "A|B|C",
     "points_forts": [],

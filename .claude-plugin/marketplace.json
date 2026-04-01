@@ -17,8 +17,8 @@
     {
       "name": "mon-greffier",
       "source": "./plugins/mon-greffier",
-      "description": "Assistant du juge consulaire au Tribunal de Commerce. Rédaction de jugements commerciaux en 5 phases avec vérification juridique Legifrance + Judilibre via PISTE.",
-      "version": "3.2.0"
+      "description": "Assistant du juge consulaire au Tribunal de Commerce. Rédaction de jugements commerciaux en 5 phases avec vérification juridique Legifrance et Judilibre.",
+      "version": "3.3.0"
     }
   ]
 }
