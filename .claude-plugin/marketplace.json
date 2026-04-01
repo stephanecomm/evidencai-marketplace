@@ -13,6 +13,12 @@
       "source": "./plugins/mnemos",
       "description": "Mémoire persistante intelligente. 37 outils MCP : sessions, atomes, espaces, profils, documents, auth, déduplication + supersession temporelle, GC v3 Haiku.",
       "version": "0.6.1"
+    },
+    {
+      "name": "mon-greffier",
+      "source": "./plugins/mon-greffier",
+      "description": "Assistant du juge consulaire au Tribunal de Commerce. Rédaction de jugements commerciaux en 5 phases avec vérification juridique Legifrance + Judilibre via PISTE.",
+      "version": "3.2.0"
     }
   ]
 }

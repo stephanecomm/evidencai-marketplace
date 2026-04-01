@@ -1,0 +1,9 @@
+{
+  "name": "mon-greffier",
+  "version": "3.2.0",
+  "description": "Assistant du juge consulaire — Aide à la rédaction de jugements commerciaux avec vérification juridique Legifrance + Judilibre via PISTE",
+  "author": {
+    "name": "EvidencAI v3.2.0"
+  },
+  "homepage": "https://www.evidencai.com/fr/outils"
+}
