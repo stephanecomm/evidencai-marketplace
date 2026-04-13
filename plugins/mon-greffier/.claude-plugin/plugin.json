@@ -1,10 +1,9 @@
 {
   "name": "mon-greffier",
-  "version": "3.3.0",
-  "description": "Assistant du juge consulaire au Tribunal de Commerce. Rédaction de jugements commerciaux en 5 phases avec vérification juridique Legifrance et Judilibre.",
+  "version": "4.0.0",
+  "description": "Assistant du juge consulaire — Aide à la rédaction de jugements commerciaux avec vérification juridique Legifrance + Judilibre via PISTE",
   "author": {
-    "name": "EvidencAI"
+    "name": "EvidencAI v4.0.0"
   },
-  "homepage": "https://www.evidencai.com/fr/outils",
-  "keywords": ["juridique", "tribunal", "jugement", "juge", "commercial", "legifrance"]
+  "homepage": "https://www.evidencai.com/fr/outils"
 }
