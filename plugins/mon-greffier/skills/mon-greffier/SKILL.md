@@ -21,6 +21,7 @@ Chaque phase est une conversation Cowork séparée. Le juge valide dans le dashb
 ## Outils MCP disponibles
 
 **Auth :** mongreffier_login, mongreffier_signup
+**Profil juge :** mongreffier_get_profile, mongreffier_update_profile (juridiction, formule PCM custom, vocabulaire local, signature)
 **Crédits :** mongreffier_get_credits, mongreffier_apply_promo
 **CRUD :** mongreffier_create_dossier, mongreffier_write_phase, mongreffier_read_responses, mongreffier_update_dossier, mongreffier_read_dossier
 **Vérification juridique :** mongreffier_verifier_references (batch PISTE + pré-évaluation)

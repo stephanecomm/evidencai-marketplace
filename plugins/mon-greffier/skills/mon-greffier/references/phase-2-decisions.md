@@ -3,10 +3,11 @@
 ## Prérequis
 
 1. Authentifier le juge si pas encore fait (mongreffier_login)
-2. Appeler `mongreffier_read_dossier(dossier_id, for_phase: "decisions")` — ne charge que la phase cadrage (pas les conclusions brutes)
+2. Appeler `mongreffier_read_dossier(dossier_id, for_phase: "decisions")` — charge la phase cadrage **et les métadonnées du dossier**, dont `note_delibere`
 3. Lire les réponses du juge : `mongreffier_read_responses(dossier_id, phase_type: "cadrage")`
-4. Intégrer les annotations et observations du juge dans l'analyse
-5. Si relance_context existe → relance, lire la note du juge et l'historique
+4. **Si `note_delibere` est présente**, elle reflète la décision collégiale prise à l'audience. Elle prime sur l'analyse libre : les propositions de décision doivent s'y aligner. Si un point analysé semble contredire la note, signaler la tension et proposer une décision conforme à la note en le disant explicitement dans `avis_mongreffier`.
+5. Intégrer les annotations et observations du juge dans l'analyse
+6. Si relance_context existe → relance, lire la note du juge et l'historique
 
 ## Méthode d'analyse pour chaque point de décision
 

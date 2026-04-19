@@ -3,8 +3,10 @@
 ## Prérequis
 
 1. Authentifier le juge si pas encore fait (mongreffier_login)
-2. Appeler `mongreffier_read_dossier(dossier_id, include_conclusions: true)` pour charger les conclusions
-3. Si relance_context existe sur la phase cadrage → c'est une relance, lire la note du juge et l'historique
+2. Appeler `mongreffier_read_dossier(dossier_id, include_conclusions: true)` pour charger les conclusions **et les métadonnées du dossier** (`president`, `assesseurs`, `greffier`, `date_audience`, `date_delibere`, `note_delibere`)
+3. **Si `note_delibere` est présente**, la traiter comme une consigne de haute priorité : c'est ce que la formation a décidé collégialement à l'audience. Elle doit orienter l'analyse et les alertes. Si une partie de l'analyse semble contradictoire avec la note de délibéré, le signaler explicitement dans `alertes` plutôt que de contredire silencieusement.
+4. Si `note_delibere` est absente, signaler dans le cadrage : "Note de délibéré non renseignée. L'analyse est fondée uniquement sur les conclusions des parties." (le juge peut la saisir a posteriori).
+5. Si relance_context existe sur la phase cadrage → c'est une relance, lire la note du juge et l'historique
 
 ## Travail du LLM
 

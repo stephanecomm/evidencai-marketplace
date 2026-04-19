@@ -7,8 +7,9 @@ La commande Cowork indique "RETOUR ROBUSTESSE — Le juge a sélectionné des co
 ## Prérequis
 
 1. Authentifier le juge si pas encore fait (mongreffier_login)
-2. Appeler `mongreffier_read_dossier(dossier_id, for_phase: "redaction_definitive")` — charge les phases rédaction + robustesse
-3. Lire les réponses du juge : `mongreffier_read_responses(dossier_id, phase_type: "robustesse")`
+2. **Lire les préférences du juge** : `mongreffier_get_profile(user_id)` → `preferences.juridiction`, `preferences.ville`, `preferences.formule_pcm_override`, `preferences.vocabulaire_local`, `preferences.signature`
+3. Appeler `mongreffier_read_dossier(dossier_id, for_phase: "redaction_definitive")` — charge les phases rédaction + robustesse
+4. Lire les réponses du juge : `mongreffier_read_responses(dossier_id, phase_type: "robustesse")`
 4. Le champ juge_responses contiendra :
    - `action: "redaction_definitive"`
    - `corrections_selectionnees` : indices des angles morts et risques d'appel à intégrer
@@ -50,7 +51,7 @@ Format IDENTIQUE à la phase rédaction :
 }
 ```
 
-Mêmes contraintes que la phase rédaction : point sans préfixe "Sur", analyse_droit 2 phrases max, fondement une ligne, dispositif complet avec formule PCM.
+Mêmes contraintes que la phase rédaction : point sans préfixe "Sur", analyse_droit 2 phrases max, fondement une ligne, dispositif complet avec formule PCM (voir `phase-3-redaction.md` § "Formule PCM introductive" pour les règles d'interpolation et la formule par défaut art. 450 CPC).
 
 ## Après écriture
 
