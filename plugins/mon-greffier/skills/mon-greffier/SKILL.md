@@ -20,7 +20,7 @@ Chaque phase est une conversation Cowork séparée. Le juge valide dans le dashb
 
 ## Outils MCP disponibles
 
-**Auth :** mongreffier_login, mongreffier_signup
+**Identité :** mongreffier_whoami (juge déduit automatiquement du token OAuth)
 **Profil juge :** mongreffier_get_profile, mongreffier_update_profile (juridiction, formule PCM custom, vocabulaire local, signature)
 **Crédits :** mongreffier_get_credits, mongreffier_apply_promo
 **CRUD :** mongreffier_create_dossier, mongreffier_write_phase, mongreffier_read_responses, mongreffier_update_dossier, mongreffier_read_dossier
@@ -29,13 +29,15 @@ Chaque phase est une conversation Cowork séparée. Le juge valide dans le dashb
 
 ## Routing — Détection de la phase
 
+L'authentification est gérée par Cowork via OAuth 2.1. Le skill n'a JAMAIS à demander de mot de passe. Si le juge n'est pas encore connecté, Cowork ouvrira automatiquement une fenêtre navigateur vers https://mongreffier.evidencai.com/oauth/authorize au premier appel d'outil MCP, puis stockera les tokens durablement (rotation automatique).
+
 À chaque invocation, identifier la phase demandée et lire le fichier d'instructions correspondant.
 
 **Première connexion (pas de compte) :**
 → Lire et suivre `commands/install.md`
 
 **"J'ai un nouveau dossier" / "Mon Greffier, nouveau dossier" :**
-→ Authentifier le juge (mongreffier_login)
+→ Identifier le juge via mongreffier_whoami (si le juge n'est pas encore connecté, Cowork ouvrira automatiquement une fenêtre navigateur pour la première connexion)
 → Lire `references/phase-0-extraction.md` et suivre les instructions
 
 **"Extraction terminée. Lance le cadrage du dossier [ID]" :**

@@ -17,8 +17,8 @@
     {
       "name": "mon-greffier",
       "source": "./plugins/mon-greffier",
-      "description": "Assistant du juge consulaire au Tribunal de Commerce. Rédaction de jugements commerciaux en 5 phases avec vérification juridique Legifrance et Judilibre via PISTE. Backend Supabase self-hosted EvidencAI (Scaleway Coolify).",
-      "version": "6.0.0"
+      "description": "Assistant du juge consulaire au Tribunal de Commerce. Authentification OAuth 2.1 automatique, plus de saisie de mot de passe dans le chat. Rédaction de jugements commerciaux en 5 phases avec vérification juridique Legifrance et Judilibre via PISTE. Backend Supabase self-hosted EvidencAI (Scaleway Coolify).",
+      "version": "7.0.0"
     }
   ]
 }

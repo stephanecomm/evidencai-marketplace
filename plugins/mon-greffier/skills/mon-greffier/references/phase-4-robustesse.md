@@ -2,7 +2,7 @@
 
 ## Prérequis
 
-1. Authentifier le juge si pas encore fait (mongreffier_login)
+1. Identité du juge confirmée via OAuth (Cowork a déjà géré l'auth au premier appel MCP). Au besoin : `mongreffier_whoami`.
 2. Appeler `mongreffier_read_dossier(dossier_id, for_phase: "robustesse")` — ne charge que la phase rédaction
 3. Lire les réponses du juge : `mongreffier_read_responses(dossier_id, phase_type: "redaction")`
 4. Si le juge a ajouté des références en annotation, les vérifier via `mongreffier_verifier_references`

@@ -2,8 +2,8 @@
 
 ## Prérequis
 
-1. Authentifier le juge si pas encore fait (mongreffier_login)
-2. **Lire les préférences du juge** : `mongreffier_get_profile(user_id)` → récupérer `preferences.juridiction`, `preferences.ville`, `preferences.formule_pcm_override`, `preferences.vocabulaire_local`, `preferences.signature`
+1. Identité du juge confirmée via OAuth (Cowork a déjà géré l'auth au premier appel MCP). Au besoin : `mongreffier_whoami`.
+2. **Lire les préférences du juge** : `mongreffier_get_profile()` (l'identité est déduite du token) → récupérer `preferences.juridiction`, `preferences.ville`, `preferences.formule_pcm_override`, `preferences.vocabulaire_local`, `preferences.signature`
 3. Appeler `mongreffier_read_dossier(dossier_id, for_phase: "redaction")` — charge les phases pertinentes **et les métadonnées du dossier** : `president`, `assesseurs`, `greffier`, `date_audience`, `date_delibere`, `note_delibere`
 4. Lire les réponses du juge : `mongreffier_read_responses(dossier_id, phase_type: "decisions")`
 5. Les choix du juge sur chaque point de décision déterminent la rédaction

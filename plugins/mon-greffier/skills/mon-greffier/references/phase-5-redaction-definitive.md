@@ -6,8 +6,8 @@ La commande Cowork indique "RETOUR ROBUSTESSE — Le juge a sélectionné des co
 
 ## Prérequis
 
-1. Authentifier le juge si pas encore fait (mongreffier_login)
-2. **Lire les préférences du juge** : `mongreffier_get_profile(user_id)` → `preferences.juridiction`, `preferences.ville`, `preferences.formule_pcm_override`, `preferences.vocabulaire_local`, `preferences.signature`
+1. Identité du juge confirmée via OAuth (Cowork a déjà géré l'auth au premier appel MCP). Au besoin : `mongreffier_whoami`.
+2. **Lire les préférences du juge** : `mongreffier_get_profile()` (l'identité est déduite du token) → `preferences.juridiction`, `preferences.ville`, `preferences.formule_pcm_override`, `preferences.vocabulaire_local`, `preferences.signature`
 3. Appeler `mongreffier_read_dossier(dossier_id, for_phase: "redaction_definitive")` — charge les phases rédaction + robustesse
 4. Lire les réponses du juge : `mongreffier_read_responses(dossier_id, phase_type: "robustesse")`
 4. Le champ juge_responses contiendra :

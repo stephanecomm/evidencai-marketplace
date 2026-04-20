@@ -6,7 +6,7 @@ Cette phase se fait dans un fil Cowork dédié. Son seul but : lire les PDF four
 
 ## Prérequis
 
-Le juge doit être authentifié (mongreffier_login exécuté). Si pas encore fait, demander email + mot de passe.
+Le juge doit être authentifié via OAuth 2.1 (Cowork gère ce flow automatiquement au premier appel MCP). L'identité est injectée côté serveur à partir du token Bearer. Ne jamais demander de mot de passe dans le chat. Si besoin de confirmer l'identité : `mongreffier_whoami`.
 
 ## Workflow
 
@@ -40,7 +40,6 @@ Appeler `mongreffier_create_dossier` avec les MD et les métadonnées extraites 
 
 ```
 mongreffier_create_dossier(
-  user_id: <user_id>,
   titre: "X c/ Y",
   numero_rg: "2024/...",
   conclusions_md: "<markdown complet>",

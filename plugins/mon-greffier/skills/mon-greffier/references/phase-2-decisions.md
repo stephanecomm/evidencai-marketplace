@@ -2,7 +2,7 @@
 
 ## Prérequis
 
-1. Authentifier le juge si pas encore fait (mongreffier_login)
+1. Identité du juge confirmée via OAuth (Cowork a déjà géré l'auth au premier appel MCP). Au besoin : `mongreffier_whoami`.
 2. Appeler `mongreffier_read_dossier(dossier_id, for_phase: "decisions")` — charge la phase cadrage **et les métadonnées du dossier**, dont `note_delibere`
 3. Lire les réponses du juge : `mongreffier_read_responses(dossier_id, phase_type: "cadrage")`
 4. **Si `note_delibere` est présente**, elle reflète la décision collégiale prise à l'audience. Elle prime sur l'analyse libre : les propositions de décision doivent s'y aligner. Si un point analysé semble contredire la note, signaler la tension et proposer une décision conforme à la note en le disant explicitement dans `avis_mongreffier`.
