@@ -1,9 +1,9 @@
 {
   "name": "mon-greffier",
-  "version": "7.0.0",
-  "description": "Assistant du juge consulaire au Tribunal de Commerce. Authentification OAuth 2.1 automatique, plus de saisie de mot de passe dans le chat. Rédaction de jugements commerciaux en 5 phases avec vérification juridique Legifrance et Judilibre via PISTE. Backend Supabase self-hosted EvidencAI (Scaleway).",
+  "version": "7.1.0",
+  "description": "Assistant du juge consulaire au Tribunal de Commerce. Authentification OAuth 2.1 automatique avec déclaration explicite du serveur d'autorisation. Rédaction de jugements commerciaux en 5 phases avec vérification juridique Legifrance et Judilibre via PISTE. Backend Supabase self-hosted EvidencAI (Scaleway).",
   "author": {
-    "name": "EvidencAI v7.0.0"
+    "name": "EvidencAI v7.1.0"
   },
   "homepage": "https://www.evidencai.com/fr/outils",
   "keywords": ["juridique", "tribunal", "jugement", "juge", "commercial", "legifrance", "oauth"]
